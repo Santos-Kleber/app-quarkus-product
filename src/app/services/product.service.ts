@@ -22,7 +22,7 @@ export class ProductService {
 
   // Obtem todos os produtos
   getProducts(): Observable<Product[]> {
-    console.log('Chamou o getProducts()');
+    console.log('Chamou o getProducts()' + this.url);
     return this.httpClient.get<Product[]>(this.url, this.httpOptions)
       .pipe(
         retry(2)

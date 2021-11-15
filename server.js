@@ -22,7 +22,7 @@ app.use(cors({origin: 'https://app-angular-product.herokuapp.com/',
 // Serve os arquivos estáticos da pasta dist (gerada pelo ng build)
 app.use(express.static(__dirname + "/dist/angular-http"));
 
-app.get("/*", function (req, res) {
+app.get("/*", cors, function (req, res) {
   res.sendFile(path.join(__dirname + "/dist/angular-http/index.html"));
 });
 

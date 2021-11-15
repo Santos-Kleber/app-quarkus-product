@@ -1,7 +1,7 @@
 //Importa as dependências que acabamos de instalar
 const express = require("express");
 const path = require("path");
-const cors = require('cors');
+const cors = require("cors");
 
 const app = express();
 
@@ -13,7 +13,11 @@ const app = express();
 //  next();
 //});
 
-app.use(cors({Origin: 'https://app-angular-product.herokuapp.com/'}));
+app.use(cors({origin: 'https://app-angular-product.herokuapp.com/',
+              allowedHeaders: ['sessionId', 'Content-Type'],
+              exposedHeaders: ['sessionId'],
+              methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+              preflightContinue: false}));
 
 // Serve os arquivos estáticos da pasta dist (gerada pelo ng build)
 app.use(express.static(__dirname + "/dist/angular-http"));

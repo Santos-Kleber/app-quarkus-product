@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { Product } from './../models/product';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -9,7 +10,8 @@ import { Observable, retry } from 'rxjs';
 export class ProductService {
 
   //url = 'https://app-quarkus-product.herokuapp.com/products';
-  url = '/api/products';
+  //url = '/api/products';
+  url = environment.API + environment.BASE_URL
 
   constructor(private httpClient: HttpClient) { }
 

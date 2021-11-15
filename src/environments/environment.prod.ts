@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  API:'https://app-quarkus-product.herokuapp.com',
+  BASE_URL: ''
 };

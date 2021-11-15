@@ -13,16 +13,14 @@ const app = express();
 //  next();
 //});
 
-app.use(cors({origin: 'https://app-angular-product.herokuapp.com/',
+app.use(cors({origin: '*',
               allowedHeaders: ['sessionId', 'Content-Type'],
-              exposedHeaders: ['sessionId'],
-              methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-              preflightContinue: false}));
+              methods: 'GET,HEAD,PUT,PATCH,POST,DELETE'}));
 
 // Serve os arquivos estáticos da pasta dist (gerada pelo ng build)
 app.use(express.static(__dirname + "/dist/angular-http"));
 
-app.get("/*", cors, function (req, res) {
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname + "/dist/angular-http/index.html"));
 });
 
